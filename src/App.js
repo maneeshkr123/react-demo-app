@@ -2,12 +2,19 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import { Menu } from "./pages/Menu";
+import Login from "./pages/Login";
+import { AuthenticatedRoute } from "./components/AuthenticatedRoute";
+import { AuthRoute } from "./components/AuthRoute";
+import HomePage from "./pages/HomePage";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Menu/>,
+    element: <AuthenticatedRoute><HomePage/></AuthenticatedRoute>,
+  },
+  {
+    path: "/login",
+    element: <AuthRoute><Login/></AuthRoute>,
   },
   {
     path: "*",
